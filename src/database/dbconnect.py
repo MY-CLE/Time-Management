@@ -1,47 +1,53 @@
-from mysql.connector import MySQLConnection, Error
+import psycopg2
 from configparser import ConfigParser
 
-def read_db_config(filename='src/config.ini', section='postgres'):
-    """ Read database configuration file and return a dictionary object
-    :param filename: name of the configuration file
-    :param section: section of database configuration
-    :return: a dictionary of database parameters
-    """
-    # create parser and read ini configuration file
+def config(filename='src\database\database.ini', section='postgresql'):
+    # create a parser
     parser = ConfigParser()
+    # read config file
     parser.read(filename)
 
-    # get section, default to mysql
+    # get section, default to postgresql
     db = {}
     if parser.has_section(section):
-        items = parser.items(section)
-        for item in items:
-            db[item[0]] = item[1]
+        params = parser.items(section)
+        for param in params:
+            db[param[0]] = param[1]
     else:
-        raise Exception('{0} not found in the {1} file'.format(section, filename))
+        raise Exception('Section {0} not found in the {1} file'.format(section, filename))
 
     return db
 
 def connect():
-    """ Connect to MySQL database """
-
-    db_config = read_db_config()
+    """ Connect to the PostgreSQL database server """
     conn = None
     try:
-        print('Connecting to Postgres database...')
-        conn = MySQLConnection(**db_config)
+        # read connection parameters
+        params = config()
 
-        if conn.is_connected():
-            print('Connection established.')
-        else:
-            print('Connection failed.')
+        # connect to the PostgreSQL server
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(**params)
+		
+        # create a cursor
+        cur = conn.cursor()
+        
+	# execute a statement
+        print('PostgreSQL database version:')
+        cur.execute('SELECT version()')
 
-    except Error as error:
+        # display the PostgreSQL database server version
+        db_version = cur.fetchone()
+        print(db_version)
+       
+	# close the communication with the PostgreSQL
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
         print(error)
-
     finally:
-        if conn is not None and conn.is_connected():
+        if conn is not None:
             conn.close()
-            print('Connection closed.')
+            print('Database connection closed.')
+
 if __name__ == '__main__':
-    print(connect())
+    connect()
