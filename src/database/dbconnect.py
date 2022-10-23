@@ -1,7 +1,9 @@
 import psycopg2
 from configparser import ConfigParser
 
-def config(filename='src\database\database.ini', section='postgresql'):
+
+# Bei windows die schraugtriche so: \ bei linux so: /
+def config(filename='src/database/database.ini', section='postgresql'):
     # create a parser
     parser = ConfigParser()
     # read config file
