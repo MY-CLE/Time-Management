@@ -1,9 +1,10 @@
 import psycopg2
+from pathlib import Path
 from configparser import ConfigParser
 
 
-# Bei windows die schraugtriche so: \ bei linux so: /
-def config(filename='src/database/database.ini', section='postgresql'):
+# General Path fix for windows/linux
+def config(filename=Path('src/database/database.ini'), section='postgresql'):
     # create a parser
     parser = ConfigParser()
     # read config file
