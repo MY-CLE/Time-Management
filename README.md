@@ -1,17 +1,32 @@
 # Softwaretechnik_time_2022
 Softwaretechnik Waterfall projekt Employee Time management
 
-# Installation Requierments
+## :computer: Installation
 
-Languages:
-Python 3 : https://www.python.org/downloads/
-    pip installer: Normaly included in python installation
+From source:
+```
+git clone https://github.com/Doderich/Softwaretechnik_2022.git
+cd Softwaretechnik_2022
+```
+## :card_index_dividers: Dependencies:
 
-GUI Framework:
-PyQt6 Libaray: pip install pyqt6
+- [Python >= 3.9](https://www.python.org/downloads/)
+    > pip installer: Normaly included in python installation
+### Installing dependencies
+```
+cd Softwaretechnik_2022
+pip install -r requirements.txt
+```
+## :page_with_curl: Documentation
+Can be found [here](Documentation)
 
-DB connection:
+## :books: Libraries
+#### GUI Framework:
+ - PyQt6
 
-psycopg2: pip install psycopg2 or "pip install psycopg2-binary" first
-Config Parser: pip install configparser
-Pathlib(normaly already included in python): pip install pathlib
+#### DB connection:
+ - psycopg2 (psycopg2-binary)
+
+#### Python built-in packages:
+ - configparser
+ - pathlib
