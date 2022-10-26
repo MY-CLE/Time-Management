@@ -1,0 +1,7 @@
+QPushButton#testbutton {
+    font-size: 16px;
+    background-color: "darkgreen"
+}
+QMainWindow {
+    background-color: "blue"
+}
