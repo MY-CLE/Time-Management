@@ -2,13 +2,12 @@ from pathlib import Path
 import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
-                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget)
-from PyQt6.QtGui import QPalette, QTextCharFormat 
-
+                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel)
 
 class Calender(QCalendarWidget):
     def __init__(self):
-        super.__init__(self)
+        super.__init__()
+        self.selected = None
 
 
 class MainWindow(QMainWindow):
@@ -18,19 +17,41 @@ class MainWindow(QMainWindow):
         testbutton = QPushButton()
         testbutton.setObjectName("testbutton")
         test2button = QPushButton()
+        #test2button.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         
         #Calendar
+        self.calendar = QCalendarWidget()
+
+        #Lable
+        lable1 = QLabel()
+        lable2 = QLabel()
+        lable3 = QLabel()
+        lable4 = QLabel()
         
-        self.calendar = Calender()
-
         # Layout
+        
+        left_sidebar_QVlayout = QVBoxLayout()
+        leftSidebarQVlayout.addWidget(testbutton)
+        leftSidebarQVlayout.addWidget(test2button)
+        
+        
+        rightSidebarQVlayout = QVBoxLayout()
+        rightSidebarQVlayout.addWidget(lable4)
+        
+        
+        headerQHlayout = QHBoxLayout()
+        headerQHlayout.addWidget(lable1)
+        headerQHlayout.addWidget(lable2)
+        headerQHlayout.addWidget(lable3)        
+        
+        viewQVlayout = QVBoxLayout()
+        viewQVlayout.addLayout(headerQHlayout)
+        viewQVlayout.addWidget(self.calendar)
+        
         mainQHlayout = QHBoxLayout()
-        sidebarQVlayout = QVBoxLayout()
-
-        sidebarQVlayout.addWidget(testbutton)
-        sidebarQVlayout.addWidget(test2button)
-        mainQHlayout.addLayout(sidebarQVlayout)
-        mainQHlayout.addWidget(self.calendar)
+        mainQHlayout.addLayout(leftSidebarQVlayout)
+        mainQHlayout.addLayout(viewQVlayout)
+        mainQHlayout.addLayout(rightSidebarQVlayout)
 
         centralWidget = QWidget()
 
