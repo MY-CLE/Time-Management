@@ -20,8 +20,11 @@ class MainWindow(QMainWindow):
         
         # Buttons
         testbutton = QPushButton()
+        testbutton.setFixedSize(QSize(200,200))
+        testbutton.setStyleSheet()
         testbutton.setObjectName("testbutton")
         test2button = QPushButton()
+        test2button.setFixedSize(QSize(200,200))
         #test2button.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         
         #Calendar
