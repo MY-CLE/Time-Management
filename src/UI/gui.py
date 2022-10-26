@@ -1,6 +1,7 @@
 from pathlib import Path
 import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
                              QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel)
 
@@ -13,6 +14,10 @@ class Calender(QCalendarWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        
+        self.setWindowTitle("TIME")
+        self.setFixedSize(QSize(1080,720))
+        
         # Buttons
         testbutton = QPushButton()
         testbutton.setObjectName("testbutton")
@@ -30,7 +35,7 @@ class MainWindow(QMainWindow):
         
         # Layout
         
-        left_sidebar_QVlayout = QVBoxLayout()
+        leftSidebarQVlayout = QVBoxLayout()
         leftSidebarQVlayout.addWidget(testbutton)
         leftSidebarQVlayout.addWidget(test2button)
         
