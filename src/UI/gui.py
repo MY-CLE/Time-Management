@@ -3,7 +3,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import(QApplication,QMainWindow, QHBoxLayout, QVBoxLayout, QPushButton)
 
 
-#TEST
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
