@@ -1,6 +1,9 @@
 import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import(QApplication,QMainWindow, QHBoxLayout, QVBoxLayout, QPushButton)
+
+
+#TEST
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -8,7 +11,7 @@ class MainWindow(QMainWindow):
         #Buttons
         testbutton = QPushButton()
         testbutton.setba
-        
+
         
         # Layout
         mainQHlayout = QHBoxLayout()
