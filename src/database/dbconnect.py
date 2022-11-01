@@ -2,7 +2,6 @@ import psycopg2
 from pathlib import Path
 from configparser import ConfigParser
 
-
 # General Path fix for windows/linux
 def config(filename=Path('src/database/database.ini'), section='postgresql'):
     # create a parser
@@ -21,26 +20,31 @@ def config(filename=Path('src/database/database.ini'), section='postgresql'):
 
     return db
 
-def connect():
+def connect(sql):
     """ Connect to the PostgreSQL database server """
     conn = None
     try:
         # read connection parameters
-        params = config()
+        ##params = config()
 
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
-        conn = psycopg2.connect(**params)
-		# test
+        conn = psycopg2.connect(
+            host='localhost', 
+            dbname='postgres', 
+            user='postgres', 
+            password='postgresadmin', 
+            port='5432')
         # create a cursor
         cur = conn.cursor()
         
 	# execute a statement
         print('PostgreSQL database version:')
-        cur.execute('SELECT version()')
-
+        cur.execute(sql)
+        
+        conn.commit()
         # display the PostgreSQL database server version
-        db_version = cur.fetchone()
+        db_version = cur.fetchall()
         print(db_version)
        
 	# close the communication with the PostgreSQL
