@@ -25,16 +25,11 @@ def connect(sql):
     conn = None
     try:
         # read connection parameters
-        ##params = config()
+        params = config()
 
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
-        conn = psycopg2.connect(
-            host='localhost', 
-            dbname='postgres', 
-            user='postgres', 
-            password='postgresadmin', 
-            port='5432')
+        conn = psycopg2.connect(**params)
         # create a cursor
         cur = conn.cursor()
         
