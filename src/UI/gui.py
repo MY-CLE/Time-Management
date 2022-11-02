@@ -8,7 +8,7 @@ from PyQt6.QtGui import QPalette, QTextCharFormat
 
 class Calender(QCalendarWidget):
     def __init__(self):
-        super.__init__(self)
+        super().__init__()
 
 
 class MainWindow(QMainWindow):
