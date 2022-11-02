@@ -3,5 +3,8 @@ QPushButton#testbutton {
     background-color: "darkgreen"
 }
 QMainWindow {
-    background-color: "blue"
+    background-color: "lightgrey"
+}
+QLabel{
+    background-color: "pink"
 }
