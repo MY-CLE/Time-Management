@@ -18,6 +18,9 @@ cd Softwaretechnik_2022
 pip install -r requirements.txt
 ```
 ## :page_with_curl: Documentation
+
+The [Databasemodel] was created using dbdesigner.net
+
 Can be found [here](Documentation)
 
 ## :books: Libraries
@@ -30,3 +33,6 @@ Can be found [here](Documentation)
 #### Python built-in packages:
  - configparser
  - pathlib
+
+[//]: # 
+   [Databasemodel]: <https://sqlspy.io/import_db_designer/c3B5LTM1NDkwNDktMjA5ODgwNjQ2M2IzMWExMC01Njc5MDI=>
