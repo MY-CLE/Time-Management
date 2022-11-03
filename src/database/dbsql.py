@@ -1,6 +1,7 @@
-from dbconnect import DatabaseHandler
 import sys
-sys.path.insert(0, "C:/Users/disga/Desktop/Studium SWB/SWB 3/Softwaretechnik/Labor/Waterfall STC/Softwaretechnik_2022/src/")
+from dbconnect import DatabaseHandler
+
+sys.path.insert(0, "src//")
 from components.stakeholder.Employee import Employee
 
 
