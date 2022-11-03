@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         
+        
         self.setWindowTitle("TIME")
         self.setMinimumSize(QSize(1080,720))
         
@@ -60,6 +61,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    
     app = QApplication(sys.argv)
 
     with open(Path("src/UI/styles.qss"), "r") as file:
