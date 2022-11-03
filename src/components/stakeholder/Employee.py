@@ -13,5 +13,3 @@ class Employee(object):
 
     def getLastName(self) -> str:
         return self.__lastName
-
-
