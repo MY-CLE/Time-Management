@@ -1,10 +1,11 @@
 from pathlib import Path
+from guielements import sidebar
 import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import QSize
+from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
-                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel)
-
+                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QButtonGroup)
+from PyQt6.QtCore import QSize
 class Calender(QCalendarWidget):
     def __init__(self):
         super.__init__(self)
@@ -15,17 +16,11 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         
         self.setWindowTitle("TIME")
-        self.setFixedSize(QSize(1080,720))
+        self.setMinimumSize(QSize(1080,720))
         
-        # Buttons
-        testbutton = QPushButton()
-        testbutton.setFixedSize(QSize(200,200))
-        testbutton.setStyleSheet()
-        testbutton.setObjectName("testbutton")
-        test2button = QPushButton()
-        test2button.setFixedSize(QSize(200,200))
-        #test2button.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
-        
+        sidebarLayout = sidebar.CustSidebar()
+        sidebarLayout.setObjectName('sideBarLayout')
+       
         #Calendar
         self.calendar = QCalendarWidget()
 
@@ -36,32 +31,30 @@ class MainWindow(QMainWindow):
         lable4 = QLabel()
         
         # Layout
-        
-        leftSidebarQVlayout = QVBoxLayout()
-        leftSidebarQVlayout.addWidget(testbutton)
-        leftSidebarQVlayout.addWidget(test2button)
-        
-        
         rightSidebarQVlayout = QVBoxLayout()
         rightSidebarQVlayout.addWidget(lable4)
+        
+        container = QWidget()
+        container.setObjectName('container')
+        container.setMinimumSize(200,200)
         
         
         headerQHlayout = QHBoxLayout()
         headerQHlayout.addWidget(lable1)
         headerQHlayout.addWidget(lable2)
-        headerQHlayout.addWidget(lable3)        
+        headerQHlayout.addWidget(lable3)   
         
         viewQVlayout = QVBoxLayout()
         viewQVlayout.addLayout(headerQHlayout)
         viewQVlayout.addWidget(self.calendar)
         
         mainQHlayout = QHBoxLayout()
-        mainQHlayout.addLayout(leftSidebarQVlayout)
+        mainQHlayout.addWidget(sidebarLayout)
         mainQHlayout.addLayout(viewQVlayout)
         mainQHlayout.addLayout(rightSidebarQVlayout)
 
-        centralWidget = QWidget()
 
+        centralWidget = QWidget()
         centralWidget.setLayout(mainQHlayout)
         self.setCentralWidget(centralWidget)
 
