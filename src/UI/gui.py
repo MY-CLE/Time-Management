@@ -1,11 +1,11 @@
-from pathlib import Path
+import os
 from guielements import sidebar
 import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
                              QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QButtonGroup)
-from PyQt6.QtCore import QSize
+from PyQt6.QtCore import QSize, QDir
 class Calender(QCalendarWidget):
     def __init__(self):
         super.__init__(self)
@@ -61,10 +61,11 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
-    with open(Path("src/UI/styles.qss"), "r") as file:
+    root = os.getcwd()    
+    stylesheet = os.path.join(root, os.path.abspath("src/UI/styles.qss"))
+    with open(stylesheet, "r") as file:
         app.setStyleSheet(file.read())
-
+    print(root)
     window = MainWindow()
     window.show()
 
