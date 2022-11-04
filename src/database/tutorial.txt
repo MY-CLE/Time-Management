@@ -1,0 +1,8 @@
+Install Docker
+docker run --name 'Containername' -e POSTGRES_PASSWORD='password' -d -p 'port:port' postgres:latest
+docker ps
+
+
+SQL Statements:
+Go into Docker Terminal
+psql -h localhost -p 'port' -U 'username'

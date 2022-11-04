@@ -13,6 +13,7 @@ QPushButton{
 }
 
 QPushButton#homeBtn {
+
     /*background-color: 'blue';*/
     background-image: url("src/assets/images/iconhome.png");
 }
