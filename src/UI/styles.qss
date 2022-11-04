@@ -13,19 +13,25 @@ QPushButton{
 }
 
 QPushButton#homeBtn {
-    background-image: url(src/assets/images/iconhome.png);
+
+    /*background-color: 'blue';*/
+    background-image: url("src/assets/images/iconhome.png");
 }
 QPushButton#timeBtn {
-    background-image: url(src/assets/images/iconclock.png);
+    /*background-color: 'blue';*/
+    background-image: url("src/assets/images/iconclock.png");
 }
 QPushButton#flextimeBtn {
-    background-image: url(src/assets/images/icondeadlift.png);
+    /*background-color: 'blue';*/
+    background-image: url("src/assets/images/icondeadlift.png");
 }
 QPushButton#vacationBtn {
-    background-image: url(src/assets/images/icongeography.png);
+    /*background-color: 'blue';*/
+    background-image: url("src/assets/images/icongeography.png");
 }
 QPushButton#profilBtn {
-    background-image: url(src/assets/images/iconaccount.png);
+    /*background-color: 'blue';*/
+    background-image: url("src/assets/images/iconaccount.png");
 }
 
 QLabel{
