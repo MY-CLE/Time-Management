@@ -1,12 +1,10 @@
 import os
 import sys
-from Pages import page_select, login_window
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtWidgets import (QApplication)
-
-
-
-
+from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
+                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QStackedWidget)
+from PyQt6.QtCore import QSize, QDir
+from Pages import main_window, login_window
 
 if __name__ == "__main__":
     
@@ -16,7 +14,17 @@ if __name__ == "__main__":
     
     with open(stylesheet, "r") as file:
         app.setStyleSheet(file.read())
-    window = login_window.LoginWindow()
-    window.show()
+    
+    
+    
+    widget = QStackedWidget()
+    loginWindow = login_window.LoginWindow()
+    mainWindow = main_window.MainWindow()
+    
+    widget.addWidget(mainWindow)
+    widget.addWidget(loginWindow)
+    widget.setCurrentWidget(mainWindow)
+    
+    widget.show()
 
     app.exec()

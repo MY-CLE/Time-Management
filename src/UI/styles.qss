@@ -1,10 +1,11 @@
 QMainWindow {
-    background-color:  rgba(134, 0, 240, 0.15)
+    background-color:  green
 }
+/*
 QWidget{
     background: 'lightgrey';
 }
-
+*/
 QPushButton{
     font-size: 16px;
     background-color: "white";

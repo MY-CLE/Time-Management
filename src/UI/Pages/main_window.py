@@ -4,7 +4,7 @@ import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
-                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QButtonGroup)
+                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel)
 from PyQt6.QtCore import QSize, QDir
 
 
@@ -12,9 +12,9 @@ class Calender(QCalendarWidget):
     def __init__(self):
         super.__init__(self)
 
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
     def __init__(self):
-        super(MainWindow, self).__init__()
+        super(QWidget, self).__init__()
         
         
         self.setWindowTitle("TIME")
@@ -49,6 +49,7 @@ class MainWindow(QMainWindow):
         mainQHlayout.addLayout(rightSidebarQVlayout)
 
 
-        centralWidget = QWidget()
-        centralWidget.setLayout(mainQHlayout)
-        self.setCentralWidget(centralWidget)
+        #centralWidget = QWidget()
+        #centralWidget.setLayout(mainQHlayout)
+        #self.setCentralWidget(centralWidget)
+        self.setLayout(mainQHlayout)
