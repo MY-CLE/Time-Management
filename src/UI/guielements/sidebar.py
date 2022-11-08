@@ -11,8 +11,6 @@ class CustSidebar(QWidget):
         #self.setStyleSheet('background-color:black;')
         #buttons
         
-        btn_group = QButtonGroup(self)
-        
         sidelayout = QVBoxLayout()
         self.homeBtn = QPushButton()
         self.homeBtn.setObjectName('homeBtn')
@@ -35,11 +33,6 @@ class CustSidebar(QWidget):
         self.profilBtn.setObjectName('profilBtn')
         self.profilBtn.setMinimumSize(100,100)
         
-        btn_group.addButton(self.homeBtn)
-        btn_group.addButton(self.timeBtn)
-        btn_group.addButton(self.vacationBtn)
-        btn_group.addButton(self.profilBtn)
-
         sidelayout.addWidget(self.homeBtn)
         sidelayout.addWidget(self.timeBtn)
         sidelayout.addWidget(self.flextimeBtn)
