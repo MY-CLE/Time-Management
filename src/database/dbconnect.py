@@ -50,7 +50,8 @@ class DatabaseHandler(object):
 
         try:
             self.cur.execute(sql)
-            self.conn.commit()
+            print(self.cur.fetchall())
+            #self.conn.commit()
 
 
             self.cur.close()
