@@ -10,7 +10,7 @@ DECLARE
 BEGIN
 	SELECT email
 	INTO v_username
-	FROM Credential
+	FROM public."public.Credential"
 	WHERE password = giv_password;
 
 	IF v_username = giv_username THEN
