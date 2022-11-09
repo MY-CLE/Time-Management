@@ -6,7 +6,8 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
 from PyQt6.QtCore import QSize, QDir
 from Pages import main_window, login_window
 
-if __name__ == "__main__":
+
+def main():
     
     app = QApplication(sys.argv)
     root = os.getcwd()    
@@ -16,15 +17,19 @@ if __name__ == "__main__":
         app.setStyleSheet(file.read())
     
     
-    
     widget = QStackedWidget()
     loginWindow = login_window.LoginWindow()
     mainWindow = main_window.MainWindow()
     
     widget.addWidget(mainWindow)
     widget.addWidget(loginWindow)
-    widget.setCurrentWidget(mainWindow)
+    widget.setCurrentWidget(loginWindow)
     
     widget.show()
 
     app.exec()
+
+    
+
+if __name__ == "__main__":
+    main()

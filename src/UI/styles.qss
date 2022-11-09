@@ -1,16 +1,62 @@
 QMainWindow {
-    background-color:  green
+    background-color:  green;
 }
-/*
+
 QWidget{
-    background: 'lightgrey';
+    background: #be06ff;
+}
+
+QLineEdit {
+ border: 2px solid gray;
+ border-radius: 10px;
+ font-size: 20px;
+}
+
+/*
+QLabel{
+    background-color: "pink"
 }
 */
+
+QWidget#swtLogo {
+    background: #be06ff;
+    background-image: url("src/assets/images/swt_logo.png");
+}
+
+QWidget#loginContainer {
+    background: white;
+    border-top-left-radius:30px;
+    border-bottom-left-radius:30px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+}
+QLabel#forgottenpwdLable {
+    font-size: 12px;
+    color:blue;
+    background-color: white;
+}
+
+
+QLabel#loginTitle { 
+    font-size: 30px;
+    color: black;
+    background-color: white;
+}
+
+QLineEdit{
+    background-color: "lightgrey";
+    color: "black";
+}
 QPushButton{
     font-size: 16px;
     background-color: "white";
     border-radius : 20; 
     border : 0px;
+}
+
+QPushButton#loginBtn{
+    background-color: #be06ff;
+    border: 2px solid black;
 }
 
 QPushButton#homeBtn {
@@ -33,8 +79,4 @@ QPushButton#vacationBtn {
 QPushButton#profilBtn {
     /*background-color: 'blue';*/
     background-image: url("src/assets/images/iconaccount.png");
-}
-
-QLabel{
-    background-color: "pink"
 }
