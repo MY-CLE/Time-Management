@@ -1,9 +1,7 @@
 import os
-import sys
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QPixmap, QFont
-from PyQt6.QtWidgets import (QMainWindow, QPushButton, QHBoxLayout, QVBoxLayout, QWidget, QLineEdit, QLabel)
-from PyQt6.QtCore import QSize, Qt, pyqtSignal
+from PyQt6.QtGui import QPixmap
+from PyQt6.QtWidgets import (QPushButton, QHBoxLayout, QVBoxLayout, QWidget, QLineEdit, QLabel)
+from PyQt6.QtCore import QSize, Qt
 
 # This Class displays a login page from which the user can login to his account
 # It contains 2 Text Inputs and one login button, the forgotten password lable is purly for visual
