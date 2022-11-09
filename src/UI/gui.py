@@ -17,7 +17,6 @@ def main():
         app.setStyleSheet(file.read())
     
     
-    
     widget = QStackedWidget()
     loginWindow = login_window.LoginWindow()
     mainWindow = main_window.MainWindow()
