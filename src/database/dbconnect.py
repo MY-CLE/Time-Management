@@ -51,18 +51,20 @@ class DatabaseHandler(object):
         try:
             self.cur.execute(sql)
             self.conn.commit()
+           
 
-
-            self.cur.close()
+            #self.cur.close()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
-        finally:
+        '''finally:
             if self.conn is not None:
                self.conn.close()
             # close the communication with the PostgreSQL
-               print('Database connection closed.')
+               print('Database connection closed.')'''
        
         
 
 if __name__ == '__main__':
-    DatabaseHandler.connect()
+    a = DatabaseHandler()
+    a.connect()
+    

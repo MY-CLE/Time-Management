@@ -25,13 +25,15 @@ class login(object):
             
             #example
             #self.__login_attempt = f"SELECT username,password FROM employee WHERE username={self.getUsername()} AND password={self.getPassword()}"
-            self.__logincheckingfunc = f"EXEC login({self.getUsername()},{self.getPassword()}"
-            self.logincheck = sqlpass.parser(self.__logincheckingfunc)
+            self.__logincheckingfunc = f"select login('{self.getUsername()}','{self.getPassword()}')"
+            sqlpass.parser(self.__logincheckingfunc)
+            self.logincheck = sqlpass.cur.fetchone()[0]
             return self.logincheck
                 
 def main():
-    a = login("Peter","passwort123")
-    #if a.userlogin() == True:
+    a = login("Peter@gmail.com","passwort123")
+    print(a.userlogin())
+    
         
     
     
