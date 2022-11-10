@@ -1,15 +1,13 @@
-QMainWindow {
-    background-color:  green;
-}
-
+/*
 QWidget{
     background: #be06ff;
 }
-
+*/
 QLineEdit {
  border: 2px solid gray;
  border-radius: 10px;
  font-size: 20px;
+ color: black;
 }
 
 /*
@@ -17,6 +15,9 @@ QLabel{
     background-color: "pink"
 }
 */
+QWidget#sidebar {
+    background: yellow;
+}
 
 QWidget#swtLogo {
     background: #be06ff;
@@ -35,17 +36,26 @@ QLabel#forgottenpwdLable {
     color:blue;
     background-color: white;
 }
+QLabel#profileImage {
+    background-repeat: no-repeat;
+    background-image: url(src/assets/images/profileImagePlaceholder.jpg);
+    border-radius: 100%;
+    background-position: center;
+}
 
+QLabel#profilName {
+    font-size: 40px;
+    color: black;
+}
+QLabel#profilSubtitle {
+    font-size: 18px;
+    color: grey;
+}
 
 QLabel#loginTitle { 
     font-size: 30px;
     color: black;
     background-color: white;
-}
-
-QLineEdit{
-    background-color: "lightgrey";
-    color: "black";
 }
 QPushButton{
     font-size: 16px;
@@ -61,24 +71,32 @@ QPushButton#loginBtn{
     font-weight: bold;
 }
 
-QPushButton#homeBtn {
+QPushButton#settingsBtn {
+    background-position: center;
+    background-image: url("src/assets/images/iconsettings.png");
+    background-repeat: no-repeat;
+    text-align: center
+}
 
-    /*background-color: 'blue';*/
+QPushButton#homeBtn {
+    background-position: center;
     background-image: url("src/assets/images/iconhome.png");
+    text-align: center
 }
 QPushButton#timeBtn {
-    /*background-color: 'blue';*/
+    background-position: center;
     background-image: url("src/assets/images/iconclock.png");
+    text-align: center
 }
 QPushButton#flextimeBtn {
-    /*background-color: 'blue';*/
+    background-position: center;
     background-image: url("src/assets/images/icondeadlift.png");
 }
 QPushButton#vacationBtn {
-    /*background-color: 'blue';*/
+    background-position: center;
     background-image: url("src/assets/images/icongeography.png");
 }
 QPushButton#profilBtn {
-    /*background-color: 'blue';*/
+    background-position: center;
     background-image: url("src/assets/images/iconaccount.png");
 }

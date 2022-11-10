@@ -15,7 +15,6 @@ class LoginWindow(QWidget):
         super(QWidget, self).__init__()
         # Keeps track of login status
         self.loginStatus = False
-        
         self.setWindowTitle("Login")
         self.setMinimumSize(QSize(1080,720))
         self.setObjectName('loginWindow')
@@ -68,6 +67,7 @@ class LoginWindow(QWidget):
         container = QWidget()
         container.setObjectName("loginContainer")
         container.setFixedSize(400,300)
+        container.setStyleSheet('background-color: white')
         
         containerLayout = QVBoxLayout()
         containerLayout.setAlignment(Qt.AlignmentFlag.AlignHCenter)
