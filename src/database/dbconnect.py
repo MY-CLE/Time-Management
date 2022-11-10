@@ -6,13 +6,14 @@ from configparser import ConfigParser
 
 # General Path fix for windows/linux
 class DatabaseHandler(object):
-
+    def __init__(self):
+        self._config = DatabaseHandler.config()
+    
     def config(filename=Path('src/database/database.ini'), section='postgresql'):
         # create a parser
         parser = ConfigParser()
         # read config file
         parser.read(filename)
-
         # get section, default to postgresql
         db = {}
         if parser.has_section(section):
@@ -21,16 +22,13 @@ class DatabaseHandler(object):
                 db[param[0]] = param[1]
         else:
             raise Exception('Section {0} not found in the {1} file'.format(section, filename))
-
         return db
-
     def connect(self):
         """ Connect to the PostgreSQL database server """
         self.conn = None
         try:
             # read connection parameters
-            self.params = DatabaseHandler.config()
-
+            self.params = self._config
             # connect to the PostgreSQL server
             print('Connecting to the PostgreSQL database...')
             self.conn = psycopg2.connect(**self.params)
@@ -47,26 +45,39 @@ class DatabaseHandler(object):
         
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
-
+    
     def parser(self, sql):
-
         try:
             self.cur.execute(sql)
             self.conn.commit()
-           
-
+        
             #self.cur.close()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
         '''finally:
             if self.conn is not None:
-               self.conn.close()
+            self.conn.close()
             # close the communication with the PostgreSQL
-               print('Database connection closed.')'''
-       
+            print('Database connection closed.')'''
+                
+    
+    def fetch_by_query(self,sql):
         
+        dbconfig = self._config
+        conn = psycopg2.connect(**dbconfig)
+        cursor = conn.cursor()
+        try:
+            cursor.execute(sql)
+            #self.cur.close()
+            return cursor.fetchall()[0][0]
+        except (Exception, psycopg2.DatabaseError) as error:
+            print(error)
+        finally:
+            cursor.close()
+            conn.close()           
 
 if __name__ == '__main__':
     a = DatabaseHandler()
-    a.connect()
+    #a.connect()
+    print(a.fetch_by_query( "select login('malte@ist.cool','12345678')"))
     
