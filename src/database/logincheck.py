@@ -18,21 +18,18 @@ class Login(object):
 
         def userlogin(self) -> bool:
             sqlpass = DatabaseHandler()
-            sqlpass.connect()
             
             #add sql logic
             
             #example
             #self.__login_attempt = f"SELECT username,password FROM employee WHERE username={self.getUsername()} AND password={self.getPassword()}"
-            self.__logincheckingfunc = f"select login('{self.getUsername()}','{self.getPassword()}')"
-            sqlpass.parser(self.__logincheckingfunc)
-            self.logincheck = sqlpass.cur.fetchone()[0]
-            return self.logincheck
+            self.__logincheckingfunc = f"SELECT login('{self.getUsername()}','{self.getPassword()}')"
+            return sqlpass.parser(self.__logincheckingfunc)
         
         def userLogin2(self) -> bool:
             db = DatabaseHandler()
-            query = f"select login('{self.getUsername()}','{self.getPassword()}')"
-            return db.fetch_by_query(query)
+            query = f"SELECT login('{self.getUsername()}','{self.getPassword()}')"
+            return db.parser(query)
             
                 
 def main():

@@ -48,29 +48,13 @@ class DatabaseHandler(object):
         try:
             self.connect()
             self.cursor.execute(sql)
-            return self.cursor.fetchall()[0][0]
+            return self.cursor.fetchall()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
         finally:
             self.cursor.close()
-            self.conn.close() 
-                
-    
-    '''def fetch_by_query(self,sql):
+            self.conn.close()
         
-        dbconfig = self._config
-        conn = psycopg2.connect(**dbconfig)
-        cursor = conn.cursor()
-        try:
-            cursor.execute(sql)
-            #self.cur.close()
-            return cursor.fetchall()[0][0]
-        except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
-        finally:
-            cursor.close()
-            conn.close()      '''     
-
 if __name__ == '__main__':
     a = DatabaseHandler()
     #a.connect()
