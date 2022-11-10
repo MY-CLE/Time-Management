@@ -28,10 +28,17 @@ class Login(object):
             sqlpass.parser(self.__logincheckingfunc)
             self.logincheck = sqlpass.cur.fetchone()[0]
             return self.logincheck
+        
+        def userLogin2(self) -> bool:
+            db = DatabaseHandler()
+            query = f"select login('{self.getUsername()}','{self.getPassword()}')"
+            return db.fetch_by_query(query)
+            
                 
 def main():
     a = Login("malte@ist.cool","12345678")
     print(a.userlogin())
+    print(a.userLogin2())
     
         
 if __name__ == '__main__':
