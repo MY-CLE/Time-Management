@@ -1,12 +1,11 @@
-import os
-from guielements import sidebar as sb, header, view
 import sys
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QPixmap
-from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
-                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel)
-from PyQt6.QtCore import QSize, QDir
-
+sys.path.insert(0, "src//")
+from guielements.sidebar import CustSidebar
+from guielements.header import CustHeader
+from guielements.view import View
+from PyQt6.QtWidgets import (QHBoxLayout,
+                             QVBoxLayout, QWidget)
+from PyQt6.QtCore import QSize
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -16,17 +15,17 @@ class MainWindow(QWidget):
         self.setObjectName("mainWindow")
         
         
-        sidebar = sb.CustSidebar()
+        sidebar = CustSidebar()
        
         #Calendar
-        viewWidget = view.View()
+        viewWidget = View()
         #Lable
         
         container = QWidget()
         container.setObjectName('container')
         container.setMinimumSize(200,200)
         
-        headerWidget = header.CustHeader()
+        headerWidget = CustHeader()
                 
         viewQVlayout = QVBoxLayout()
         viewQVlayout.addWidget(headerWidget)

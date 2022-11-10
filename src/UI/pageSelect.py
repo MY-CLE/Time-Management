@@ -15,7 +15,7 @@ class PageSelect(QMainWindow):
         self.widget.addWidget(self.loginWindow)
         self.widget.addWidget(self.mainWindow)
         
-        self.widget.setStyleSheet('background-color: #be06ff')
+        #self.widget.setStyleSheet('background-color: #be06ff')
         #Display the Loginpage as default
         self.widget.setCurrentIndex(0)
         self.widget.show()
