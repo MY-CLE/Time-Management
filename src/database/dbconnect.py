@@ -28,19 +28,17 @@ class DatabaseHandler(object):
         self.conn = None
         try:
             # read connection parameters
-            self.params = self._config
             # connect to the PostgreSQL server
             print('Connecting to the PostgreSQL database...')
-            self.conn = psycopg2.connect(**self.params)
+            self.conn = psycopg2.connect(**self._config)
             # create a cursor
-            self.cur = self.conn.cursor()
-            
+            self.cursor = self.conn.cursor()
         # execute a statement
             print('PostgreSQL database version:')
-            self.cur.execute('SELECT version()')
+            self.cursor.execute('SELECT version()')
             
             # display the PostgreSQL database server version
-            db_version = self.cur.fetchone()
+            db_version = self.cursor.fetchone()
             print(db_version)
         
         except (Exception, psycopg2.DatabaseError) as error:
@@ -48,20 +46,17 @@ class DatabaseHandler(object):
     
     def parser(self, sql):
         try:
-            self.cur.execute(sql)
-            self.conn.commit()
-        
-            #self.cur.close()
+            self.connect()
+            self.cursor.execute(sql)
+            return self.cursor.fetchall()[0][0]
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
-        '''finally:
-            if self.conn is not None:
-            self.conn.close()
-            # close the communication with the PostgreSQL
-            print('Database connection closed.')'''
+        finally:
+            self.cursor.close()
+            self.conn.close() 
                 
     
-    def fetch_by_query(self,sql):
+    '''def fetch_by_query(self,sql):
         
         dbconfig = self._config
         conn = psycopg2.connect(**dbconfig)
@@ -74,7 +69,7 @@ class DatabaseHandler(object):
             print(error)
         finally:
             cursor.close()
-            conn.close()           
+            conn.close()      '''     
 
 if __name__ == '__main__':
     a = DatabaseHandler()
