@@ -1,7 +1,10 @@
+import sys
+sys.path.insert(0, "src//")
 import os
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import (QPushButton, QHBoxLayout, QVBoxLayout, QWidget, QLineEdit, QLabel)
 from PyQt6.QtCore import QSize, Qt
+import database.logincheck as lc
 
 # This Class displays a login page from which the user can login to his account
 # It contains 2 Text Inputs and one login button, the forgotten password lable is purly for visual
@@ -121,13 +124,15 @@ class LoginWindow(QWidget):
         if(email == '' or pwd == ''):
             print("Please enter values")
         else:
-            self.loginStatus = True 
             credentilas = {
                 "email": email,
                 "password": pwd,
             }
-            print(credentilas)
-            self.parent().changeStackedWidget()
+            user = lc.Login(credentilas['email'], credentilas["password"])
+            if(user.userlogin()):
+                self.loginStatus = True 
+                print(credentilas)
+                self.parent().changeStackedWidget()
     
     
     #def changeLoginStatusfnc(self):

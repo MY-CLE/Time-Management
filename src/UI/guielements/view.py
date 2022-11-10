@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import (QHBoxLayout,QVBoxLayout, QPushButton, QWidget,QLabel, QStackedWidget)
-from guielements.calendar_view import CalenderView
+from UI.guielements.calendar_view import CalenderView
 
 class View(QWidget):
     def __init__(self):
