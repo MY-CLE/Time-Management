@@ -6,3 +6,8 @@ src/UI/Pages/__pycache__/login_window.cpython-310.pyc
 src/UI/Pages/__pycache__/main_window.cpython-310.pyc
 src/UI/Pages/__pycache__/login_window.cpython-310.pyc
 src/database/__pycache__/dbconnect.cpython-310.pyc
+src/UI/__pycache__/pageSelect.cpython-310.pyc
+src/UI/guielements/__pycache__/calendar_view.cpython-310.pyc
+src/UI/guielements/__pycache__/header.cpython-310.pyc
+src/UI/guielements/__pycache__/view.cpython-310.pyc
+src/database/__pycache__/logincheck.cpython-310.pyc
