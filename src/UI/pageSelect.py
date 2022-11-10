@@ -1,5 +1,7 @@
+import sys
+sys.path.insert(0, "src//")
 from PyQt6.QtWidgets import (QMainWindow,QStackedWidget)
-from Pages import main_window, login_window
+from UI.Pages import main_window, login_window
 
 #In this class we create a StackedWidget to swap between Windows
 
@@ -15,12 +17,13 @@ class PageSelect(QMainWindow):
         self.widget.addWidget(self.loginWindow)
         self.widget.addWidget(self.mainWindow)
         
+        #self.widget.setStyleSheet('background-color: #be06ff')
         #Display the Loginpage as default
         self.widget.setCurrentIndex(0)
         self.widget.show()
         
 #This Custom StackedWidegt is basicly the same as a normal one.
-#but it has a custom function which alows the Children of it to
+#but it has a custom function which allows the Children of it to
 #change the visble widget
 class Pages(QStackedWidget):
     def __init__(self, LoginWindow):

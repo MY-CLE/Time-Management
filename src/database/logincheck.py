@@ -1,9 +1,8 @@
 import sys
-from dbconnect import DatabaseHandler
-
 sys.path.insert(0, "src//")
+from database.dbconnect import DatabaseHandler
 
-class login(object):
+class Login(object):
     
         logincheck = False;
         
@@ -31,13 +30,10 @@ class login(object):
             return self.logincheck
                 
 def main():
-    a = login("Peter@gmail.com","passwort123")
+    a = Login("malte@ist.cool","12345678")
     print(a.userlogin())
     
         
-    
-    
-                
 if __name__ == '__main__':
     main()
                 

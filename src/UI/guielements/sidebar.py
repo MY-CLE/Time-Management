@@ -8,15 +8,18 @@ class CustSidebar(QWidget):
     def __init__(self) :
         
         super(QWidget, self).__init__()
-        #self.setStyleSheet('background-color:black;')
-        #buttons
+        self.setObjectName('sideBar')
+        self.setStyleSheet('background-color: white;')
+        self.setAutoFillBackground(True)
+        self.setMinimumSize(70,500)
         
         sidelayout = QVBoxLayout()
         self.homeBtn = QPushButton()
         self.homeBtn.setObjectName('homeBtn')
         self.homeBtn.setMinimumSize(100,100)
         self.homeBtn.setAutoFillBackground(True)
-                
+        
+        
         self.timeBtn = QPushButton()
         self.timeBtn.setObjectName('timeBtn')
         self.timeBtn.setMinimumSize(100,100)
@@ -40,4 +43,15 @@ class CustSidebar(QWidget):
         sidelayout.addStretch()
         sidelayout.addWidget(self.profilBtn)
         self.setLayout(sidelayout)
+        
+class sideBarContainer(QWidget):
+    def __init__(self) :
+        super(QWidget, self).__init__()
+        
+        layout = QVBoxLayout()
+        sidebar = CustSidebar()
+        layout.addWidget(sidebar)
+        self.setStyleSheet('background-color: black;')
+        self.setAutoFillBackground(True)
+        self.show()
         
