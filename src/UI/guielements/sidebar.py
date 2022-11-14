@@ -2,16 +2,18 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import  QPainter, QPalette, QColor
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
-                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QButtonGroup)
+                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QButtonGroup, QFrame)
 
-class CustSidebar(QWidget):
+class CustSidebar(QFrame):
     def __init__(self) :
         
-        super(QWidget, self).__init__()
+        super(QFrame, self).__init__()
         self.setObjectName('sideBar')
-        self.setStyleSheet('background-color: white;')
         self.setAutoFillBackground(True)
-        self.setMinimumSize(70,500)
+        self.setFixedWidth(120)
+        self.setFrameShape(QFrame.Shape.NoFrame)
+        self.setLineWidth(0)
+        
         
         sidelayout = QVBoxLayout()
         self.homeBtn = QPushButton()
@@ -42,16 +44,12 @@ class CustSidebar(QWidget):
         sidelayout.addWidget(self.vacationBtn)
         sidelayout.addStretch()
         sidelayout.addWidget(self.profilBtn)
-        self.setLayout(sidelayout)
+        sidelayout.setContentsMargins(0,0,0,0)
         
-class sideBarContainer(QWidget):
-    def __init__(self) :
-        super(QWidget, self).__init__()
+        horiLayot = QHBoxLayout()
+        horiLayot.addStretch()
+        horiLayot.addLayout(sidelayout)
+        horiLayot.addStretch()
+        self.setLayout(horiLayot)
         
-        layout = QVBoxLayout()
-        sidebar = CustSidebar()
-        layout.addWidget(sidebar)
-        self.setStyleSheet('background-color: black;')
-        self.setAutoFillBackground(True)
-        self.show()
         
