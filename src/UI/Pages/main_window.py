@@ -23,11 +23,9 @@ class MainWindow(QFrame):
         
         
         headerWidget = CustHeader()
-        navBar = NavBar()
                 
         viewQVlayout = QVBoxLayout()
         viewQVlayout.addWidget(headerWidget)
-        viewQVlayout.addWidget(navBar)
         viewQVlayout.addWidget(viewWidget)
         viewQVlayout.setContentsMargins(0,0,0,0)
         

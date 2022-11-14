@@ -13,6 +13,7 @@ class CustHeader(QFrame):
         
         profileImageLable = QLabel()
         profileImageLable.setObjectName("profileImage")
+        profileImageLable.setContentsMargins(12,12,12,12)
         
         
         
@@ -36,7 +37,7 @@ class CustHeader(QFrame):
         settingsBtn = QPushButton()
         settingsBtn.setObjectName("settingsBtn")
         settingsBtn.setMinimumSize(50,50)
-        settingsBtn.setContentsMargins(10,10,10,10)
+        settingsBtn.setContentsMargins(20,20,20,20)
         
         settingsLayout = QVBoxLayout()
         settingsLayout.addWidget(settingsBtn)

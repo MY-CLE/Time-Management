@@ -1,8 +1,4 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import  QPainter, QPalette, QColor
-from PyQt6.QtCore import QSize, Qt
-from PyQt6.QtWidgets import (QApplication, QMainWindow, QHBoxLayout,
-                             QVBoxLayout, QPushButton, QWidget, QCalendarWidget,QLabel, QButtonGroup, QFrame)
+from PyQt6.QtWidgets import (QHBoxLayout,QVBoxLayout, QLabel, QFrame)
 
 class CustSidebar(QFrame):
     def __init__(self) :
@@ -16,31 +12,34 @@ class CustSidebar(QFrame):
         
         
         sidelayout = QVBoxLayout()
-        self.homeBtn = QPushButton()
+        self.homeBtn = QLabel()
         self.homeBtn.setObjectName('homeBtn')
-        self.homeBtn.setMinimumSize(100,100)
+        self.homeBtn.setMinimumSize(70,70)
         self.homeBtn.setAutoFillBackground(True)
         
         
-        self.timeBtn = QPushButton()
+        self.timeBtn = QLabel()
         self.timeBtn.setObjectName('timeBtn')
-        self.timeBtn.setMinimumSize(100,100)
+        self.timeBtn.setMinimumSize(70,70)
         
-        self.flextimeBtn = QPushButton()
+        self.flextimeBtn = QLabel()
         self.flextimeBtn.setObjectName('flextimeBtn')
-        self.flextimeBtn.setMinimumSize(100,100)
+        self.flextimeBtn.setMinimumSize(70,70)
         
-        self.vacationBtn = QPushButton()
+        self.vacationBtn = QLabel()
         self.vacationBtn.setObjectName('vacationBtn')
-        self.vacationBtn.setMinimumSize(100,100)
+        self.vacationBtn.setMinimumSize(80,80)
         
-        self.profilBtn = QPushButton()
+        self.profilBtn = QLabel()
         self.profilBtn.setObjectName('profilBtn')
-        self.profilBtn.setMinimumSize(100,100)
+        self.profilBtn.setMinimumSize(70,70)
         
         sidelayout.addWidget(self.homeBtn)
+        sidelayout.addSpacing(5)
         sidelayout.addWidget(self.timeBtn)
+        sidelayout.addSpacing(5)
         sidelayout.addWidget(self.flextimeBtn)
+        sidelayout.addSpacing(5)
         sidelayout.addWidget(self.vacationBtn)
         sidelayout.addStretch()
         sidelayout.addWidget(self.profilBtn)

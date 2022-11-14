@@ -5,6 +5,10 @@ QWidget{
     background-color: gray;
 }*/
 
+QLabel {
+    background-repeat: no-repeat;
+}
+
 QLineEdit {
  border: 2px solid gray;
  border-radius: 10px;
@@ -47,6 +51,14 @@ QWidget#DisplayBox {
     border: 3px solid black;
 }
 
+QFrame#settingsMenu {
+    background: rgba(134, 0, 240, 0.31);
+}
+
+QFrame#settingsDisplay {
+    background: rgba(134, 0, 240, 0.08);
+
+}
 QFrame#sideBar {
     background: #8600f0;
 }
@@ -102,9 +114,13 @@ QLabel#loginTitle {
     background-color: white;
 }
 
-TabButton#tabButton {
+QPushButton#tabButton {
     color: black;
-    background-color: gray;
+    border 0px;
+}
+
+QPushButton#tabButtonPressed {
+    color: black;
     border 0px;
 }
 
@@ -116,12 +132,15 @@ QPushButton#statsViewBtn {
 }
 QPushButton{
     font-size: 16px;
-    background-color: "white";
+    background-color: #8600f0;
     border-radius : 20; 
     border: 0px;
+    background-repeat: no-repeat;
+    text-align: center
+
 }
 
-QPushButton#loginBtn{
+QPushButton#loginBtn {
     background-color: #be06ff;
     border: 2px solid black;
     color: black;
@@ -132,28 +151,31 @@ QPushButton#settingsBtn {
     background-position: center;
     background-image: url("src/assets/images/iconsettings.png");
     background-repeat: no-repeat;
-    text-align: center
+    background-color: 'white';
 }
 
-QPushButton#homeBtn {
+QLabel#homeBtn {
     background-position: center;
-    background-image: url("src/assets/images/iconhome.png");
-    text-align: center
+    /*background-image: url("src/assets/images/figma/home.png");*/
+    border-image: url(src/assets/images/figma/home.png) 0 0 0 0 stretch stretch;
 }
-QPushButton#timeBtn {
+QLabel#timeBtn {
     background-position: center;
-    background-image: url("src/assets/images/iconclock.png");
-    text-align: center
+    /*background-image: url("src/assets/images/figma/clock.png");*/
+    border-image: url(src/assets/images/figma/clock.png) 0 0 0 0 stretch stretch;
 }
-QPushButton#flextimeBtn {
+QLabel#flextimeBtn {
     background-position: center;
-    background-image: url("src/assets/images/icondeadlift.png");
+    /*background-image: url("src/assets/images/figma/arm.png");*/
+    border-image: url(src/assets/images/figma/arm.png) 0 0 0 0 stretch stretch;
 }
-QPushButton#vacationBtn {
+QLabel#vacationBtn {
     background-position: center;
-    background-image: url("src/assets/images/icongeography.png");
+    /*background-image: url("src/assets/images/figma/earth.png");*/
+    border-image: url(src/assets/images/figma/earth.png) 0 0 0 0 stretch stretch;
 }
-QPushButton#profilBtn {
+QLabel#profilBtn {
     background-position: center;
-    background-image: url("src/assets/images/iconaccount.png");
+    /*background-image: url("src/assets/images/figma/profil.png");*/
+    border-image: url(src/assets/images/figma/profil.png) 0 0 0 0 stretch stretch;
 }

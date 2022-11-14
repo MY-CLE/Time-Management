@@ -18,12 +18,12 @@ class StatsView(QFrame):
         hLayout.addWidget(secondDisplayBox)
         
         vLayout = QVBoxLayout()
-        vLayout.addStretch()
+        vLayout.addSpacing(10)
         vLayout.addWidget(notificationBar)
-        vLayout.addSpacing(50)
-        vLayout.addLayout(hLayout)
         vLayout.addStretch()
-        vLayout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        vLayout.addLayout(hLayout)
+        #vLayout.addStretch()
+        #vLayout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         
         self.setLayout(vLayout)
         self.show()
@@ -87,6 +87,7 @@ class StatDisplayBox(QWidget):
         
         mainVLayout = QVBoxLayout()
         mainVLayout.addLayout(containerLayout)
+        mainVLayout.addSpacing(10)
         mainVLayout.addLayout(btnLayout)
         self.setLayout(mainVLayout)
         self.show()
