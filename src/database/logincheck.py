@@ -1,20 +1,28 @@
 import sys
 sys.path.insert(0, "src//")
 from database.dbconnect import DatabaseHandler
-
+import re
 class Login(object):
     
-        logincheck = False;
+        logincheck = False
         
-        def __init__(self, username:str, password:str):
-                self.__username = username
-                self.__password = password
+        def __init__(self, email:str, password:str):
+            if (email == '') or (password == ''):
+                raise ValueError
+            
+            filter_email = re.compile(r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
+            if filter_email.findall(email) == []:
+                raise ValueError
+
+            self.__email = email
+            self.__password = password
+
                 
         def getPassword(self) -> str:
             return self.__password
         
         def getEmail(self) -> str:
-            return self.__username
+            return self.__email
 
         def userlogin(self) -> bool:
             sqlpass = DatabaseHandler()
@@ -22,9 +30,9 @@ class Login(object):
             #add sql logic
             
             #example
-            #self.__login_attempt = f"SELECT username,password FROM employee WHERE username={self.getEmail()} AND password={self.getPassword()}"
+            #self.__login_attempt = f"SELECT email,password FROM employee WHERE email={self.getEmail()} AND password={self.getPassword()}"
             self.__logincheckingfunc = f"SELECT login('{self.getEmail()}','{self.getPassword()}')"
-            return sqlpass.parser(self.__logincheckingfunc)
+            return sqlpass.parser(self.__logincheckingfunc)[0][0]
         
         def userLogin2(self) -> bool:
             db = DatabaseHandler()

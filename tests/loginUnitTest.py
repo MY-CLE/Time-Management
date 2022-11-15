@@ -11,7 +11,7 @@ class LoginUnitTest(unittest.TestCase):
         Test if the return functions work
         """
         login = lgn.Login('bob.andews@mail.com', 'diedrei???')
-        self.assertEqual('bob.andews@mail.com', login.getEmail()) 
+        self.assertEqual('bob.andews@mail.com', login.getEmail())
         self.assertEqual('diedrei???',login.getPassword())
     
     def test_no_input(self):
