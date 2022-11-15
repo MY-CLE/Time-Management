@@ -13,7 +13,7 @@ class Login(object):
         def getPassword(self) -> str:
             return self.__password
         
-        def getUsername(self) -> str:
+        def getEmail(self) -> str:
             return self.__username
 
         def userlogin(self) -> bool:
@@ -22,13 +22,13 @@ class Login(object):
             #add sql logic
             
             #example
-            #self.__login_attempt = f"SELECT username,password FROM employee WHERE username={self.getUsername()} AND password={self.getPassword()}"
-            self.__logincheckingfunc = f"SELECT login('{self.getUsername()}','{self.getPassword()}')"
+            #self.__login_attempt = f"SELECT username,password FROM employee WHERE username={self.getEmail()} AND password={self.getPassword()}"
+            self.__logincheckingfunc = f"SELECT login('{self.getEmail()}','{self.getPassword()}')"
             return sqlpass.parser(self.__logincheckingfunc)
         
         def userLogin2(self) -> bool:
             db = DatabaseHandler()
-            query = f"SELECT login('{self.getUsername()}','{self.getPassword()}')"
+            query = f"SELECT login('{self.getEmail()}','{self.getPassword()}')"
             return db.parser(query)
             
                 
