@@ -2,7 +2,7 @@ import sys
 sys.path.insert(0, "src//")
 import os
 from PyQt6.QtGui import QPixmap
-from PyQt6.QtWidgets import (QPushButton, QHBoxLayout, QVBoxLayout, QWidget, QLineEdit, QLabel)
+from PyQt6.QtWidgets import (QPushButton, QHBoxLayout, QVBoxLayout, QWidget, QLineEdit, QLabel, QFrame)
 from PyQt6.QtCore import QSize, Qt
 import database.logincheck as lc
 
@@ -11,11 +11,11 @@ import database.logincheck as lc
 # after the LoginBtn is pressed a function is  called which comunicates with the DB and returns a value
 # after a succsessfull login the this function calles a parent function to change the current displyed widgets
 
-class LoginWindow(QWidget):
+class LoginWindow(QFrame):
     
     
     def __init__(self, parent):
-        super(QWidget, self).__init__()
+        super(QFrame, self).__init__()
         # Keeps track of login status
         self.loginStatus = False
         self.setWindowTitle("Login")

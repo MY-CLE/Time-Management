@@ -20,6 +20,10 @@ QFrame#mainWindow {
     background: white;
 }
 
+QFrame#loginWindow {
+    background:  #be06ff;
+}
+
 
 QFrame#header {
     background: white;
