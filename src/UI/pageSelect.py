@@ -19,7 +19,7 @@ class PageSelect(QMainWindow):
         
         #self.widget.setStyleSheet('background-color: #be06ff')
         #Display the Loginpage as default
-        self.widget.setCurrentIndex(1)
+        self.widget.setCurrentIndex(0)
         self.widget.show()
         
 #This Custom StackedWidegt is basicly the same as a normal one.
